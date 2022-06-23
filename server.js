@@ -53,6 +53,7 @@ app.delete('/deleteuser/:id', function (req, res) {
 // })
 /* add User */
 app.post('/adduser',function(req,res){
+	debugger;
 	var name = req.body.name;
 	var email = req.body.email;
 	var contact = req.body.contact;
