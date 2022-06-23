@@ -6,7 +6,7 @@ const cros = require('cors');
 const path = require("path");
 const nodemailer = require('nodemailer');
 var con = mysql.createConnection({
-	host: "http://174.127.114.134:888",
+	host: "",
 	user: "BIGmediaprinting",
 	password: "8fUjbSY(U*DowBu6Az",
 	database: "bigmediaprinting"
