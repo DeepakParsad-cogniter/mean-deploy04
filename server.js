@@ -5,12 +5,12 @@ var app = express();
 const cros = require('cors');
 const path = require("path");
 const nodemailer = require('nodemailer');
-// var con = mysql.createConnection({
-// 	host: "localhost",
-// 	user: "root",
-// 	password: "",
-// 	database: "mydb"
-// });
+var con = mysql.createConnection({
+	host: "http://174.127.114.134:888",
+	user: "BIGmediaprinting",
+	password: "8fUjbSY(U*DowBu6Az",
+	database: "bigmediaprinting"
+});
 /* User List API */
 app.use(cros());
 app.use(express.urlencoded({ extended: true }));
