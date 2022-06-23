@@ -3,6 +3,7 @@ var express = require('express');
 var app = express();
 // var mysql = require('mysql');
 const cros = require('cors');
+const path = require("path");
 const nodemailer = require('nodemailer');
 // var con = mysql.createConnection({
 // 	host: "localhost",
