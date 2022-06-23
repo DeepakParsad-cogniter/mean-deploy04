@@ -68,8 +68,13 @@ app.post('/adduser',function(req,res){
 	});
 });
 /* Create Server */
-var server = app.listen(8081, function () {
-	var host = server.address().address
-	var port = server.address().port
-	console.log("Example app listening at http://%s:%s", host, port)
-})
+// var server = app.listen(8081, function () {
+// 	var host = server.address().address
+// 	var port = server.address().port
+// 	console.log("Example app listening at http://%s:%s", host, port)
+// })
+
+const port = process.env.PORT || 8081;
+app.listen(port, () => {
+    console.log("Listening on " + port);
+});
