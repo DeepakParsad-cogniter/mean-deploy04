@@ -15,9 +15,9 @@ const nodemailer = require('nodemailer');
 app.use(cros());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + 'tutorialteacher/dist'));
 app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/dist/index.html'));
+  res.sendFile(path.join(__dirname + 'tutorialteacher/dist/index.html'));
 });
 /** Delete User */
 app.get('/edituser/:id', function (req, res) {
