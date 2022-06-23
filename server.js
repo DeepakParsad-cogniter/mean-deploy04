@@ -45,12 +45,12 @@ app.delete('/deleteuser/:id', function (req, res) {
 	});
 })
 /** User list */
-// app.get('/', function (req, res) {
-// 	con.query("SELECT * FROM customers", function (err, result, fields) {
-// 		if (err) throw err;
-// 		res.send(result);
-// 	});
-// })
+app.get('/getuser', function (req, res) {
+	con.query("SELECT * FROM customers", function (err, result, fields) {
+		if (err) throw err;
+		res.send(result);
+	});
+})
 /* add User */
 app.post('/adduser',function(req,res){
 	var name = req.body.name;
