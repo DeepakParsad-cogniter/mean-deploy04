@@ -45,12 +45,12 @@ app.delete('/deleteuser/:id', function (req, res) {
 	});
 })
 /** User list */
-app.get('/getuser', function (req, res) {
-	con.query("SELECT * FROM customers", function (err, result, fields) {
-		if (err) throw err;
-		res.send(result);
-	});
-})
+// app.get('/', function (req, res) {
+// 	con.query("SELECT * FROM customers", function (err, result, fields) {
+// 		if (err) throw err;
+// 		res.send(result);
+// 	});
+// })
 /* add User */
 app.post('/adduser',function(req,res){
 	var name = req.body.name;
@@ -62,6 +62,7 @@ app.post('/adduser',function(req,res){
 		}else{
 		var sql = "UPDATE `customers` SET `email` = '"+email+"', `name` = '"+name+"', `contact` = '"+contact+"'  WHERE `id` = '"+id+"'";
 	}
+	alert("hi");
 	console.log(sql)
 	con.query(sql, function (err, result) {
 		if (err) throw err;

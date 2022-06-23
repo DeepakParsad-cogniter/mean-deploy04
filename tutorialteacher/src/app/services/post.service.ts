@@ -17,7 +17,7 @@ export class PostService {
 		return this.http.get<any>(`${this.apibaseurl}edituser/${id}`);
 	}
 	getUserList(){
-		return this.http.get(`${this.apibaseurl}getuser`)
+		return this.http.get(this.apibaseurl)
 	}
 	addUser(user:any)
 	{
