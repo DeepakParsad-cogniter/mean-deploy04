@@ -9,7 +9,7 @@ import { timeStamp } from 'console';
 export class PostService {
 	constructor(private http: HttpClient) {}
 	apibaseurl = "https://localhost:8081/";
-	// const headers = new HttpClient().set('content-type', 'application/json').set('Access-Control-Allow-Origin', '*');	// const headers = new HttpClient
+	headers = new HttpClient().set('content-type', 'application/json').set('Access-Control-Allow-Origin', '*');	// const headers = new HttpClient
 	pagedData : any;
 	status : any;
 	edituser(id:any)
@@ -43,7 +43,7 @@ export class PostService {
 		return this.http.get<any>(this.apibaseurl);
 	}
 	pagination(page: number):Observable<any> {
-		return this.http.get<any>(`${this.apibaseurl}pagination/${page}`)
+		return this.http.get<any>(`${this.apibaseurl}pagination/${page}`,{headers})
 		.pipe(
 			map((response: any) => {
 				this.pagedData = response;
