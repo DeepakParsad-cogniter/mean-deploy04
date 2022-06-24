@@ -8,7 +8,7 @@ import { timeStamp } from 'console';
 })
 export class PostService {
 	constructor(private http: HttpClient) {}
-	apibaseurl = "https://mean-deploy04.herokuapp.com:8081";
+	apibaseurl = "https://mean-deploy04.herokuapp.com:8081/";
 	// const headers = new HttpClient().set('content-type', 'application/json').set('Access-Control-Allow-Origin', '*');	// const headers = new HttpClient
 	pagedData : any;
 	status : any;
