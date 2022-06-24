@@ -15,10 +15,9 @@ var con = mysql.createConnection({
 app.use(cros());
 app.use(express.urlencoded({ extended: true }));
 
-// app.use(express.static(__dirname + '/tutorialteacher/dist'));
-app.use(express.static(process.cwd()+"/tutorialteacher/dist"));
+app.use(express.static(__dirname + '/tutorialteacher/dist'));
 app.get('/*', function(req, res) {
-  res.sendFile(process.cwd()+"/tutorialteacher/dist")
+  res.sendFile(path.join(__dirname + '/tutorialteacher/dist/index.html'));
 });
 /** Delete User */
 app.get('/edituser/:id', function (req, res) {
