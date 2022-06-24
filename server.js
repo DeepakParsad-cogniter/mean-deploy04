@@ -17,8 +17,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // app.use(express.static(__dirname + '/tutorialteacher/dist'));
 app.use(express.static(process.cwd()+"/tutorialteacher/dist"));
-app.get('/', function(req, res) {
-  res.sendFile(process.cwd()+"/tutorialteacher/dist/index.html")
+app.get('/*', function(req, res) {
+  res.sendFile(process.cwd()+"/tutorialteacher/dist")
 });
 /** Delete User */
 app.get('/edituser/:id', function (req, res) {
