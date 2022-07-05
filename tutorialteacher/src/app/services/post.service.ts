@@ -43,7 +43,7 @@ export class PostService {
 		return this.http.get<any>(this.apibaseurl);
 	}
 	pagination(page: number):Observable<any> {
-		return this.http.get<any>(`${this.apibaseurl}pagination/${page}`,`${this.headers}`)
+		return this.http.get<any>(`${this.apibaseurl}pagination/${page}`)
 		.pipe(
 			map((response: any) => {
 				this.pagedData = response;
