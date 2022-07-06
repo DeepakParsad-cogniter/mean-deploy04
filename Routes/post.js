@@ -10,11 +10,6 @@ const MIME_TYPE_MAP = {
 
 
 router.get('/pagination', function (req, res) {
-	console.log("hi");
-	res.send({
-		message: "Profile fetched successfully!",
-		profile: "prof"
-	});
 	Profile.find().then(prof => {
 		if (prof) {
 			
