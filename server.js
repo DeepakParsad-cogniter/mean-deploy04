@@ -87,22 +87,35 @@ app.delete('/deleteuser/:id', function (req, res) {
 // })
 /* add User */
 app.post('/adduser',function(req,res){
+	Profile.find().then(prof => {
+		if (prof) {
+		  
+			res.status(200).json({
+				message: "Profile fetched successfully!",
+				profile: prof
+			});
+		} else {
+			res.status(404).json({ message: "Profile not found!" });
+		}
+	})
+	.catch(e=>{
+		console.log(e)
+	});
 	debugger;
 	var name = req.body.name;
 	var email = req.body.email;
 	var contact = req.body.contact;
 	var id = req.body.id;
-	if(id == ""){
-		var sql = "INSERT INTO customers (name,email,contact) VALUES ('"+name+"','"+email+"','"+contact+"')";
-		}else{
-		var sql = "UPDATE `customers` SET `email` = '"+email+"', `name` = '"+name+"', `contact` = '"+contact+"'  WHERE `id` = '"+id+"'";
-	}
-	alert("hi");
-	console.log(sql)
-	con.query(sql, function (err, result) {
-		if (err) throw err;
-		console.log("1 record inserted");
-	});
+	// if(id == ""){
+	// 	var sql = "INSERT INTO customers (name,email,contact) VALUES ('"+name+"','"+email+"','"+contact+"')";
+	// 	}else{
+	// 	var sql = "UPDATE `customers` SET `email` = '"+email+"', `name` = '"+name+"', `contact` = '"+contact+"'  WHERE `id` = '"+id+"'";
+	// }
+	// console.log(sql)
+	// con.query(sql, function (err, result) {
+	// 	if (err) throw err;
+	// 	console.log("1 record inserted");
+	// });
 });
 /* Create Server */
 // var server = app.listen(8081, function () {
