@@ -7,19 +7,6 @@ const path = require("path");
 const nodemailer = require('nodemailer');
 const Profile = require('./profile');
 const headers = new express.Router()
-
-headers.use((req, res, next) => {
-   
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader(
-        "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept,Authorization"
-    );
-    res.setHeader(
-        "Access-Control-Allow-Methods",
-        "GET, POST, PATCH,PUT, DELETE, OPTIONS"
-    ); next();
-});
 // var con = mysql.createConnection({
 // 	host: "",
 // 	user: "BIGmediaprinting",
@@ -52,6 +39,20 @@ app.use(express.static(__dirname + '/tutorialteacher/dist'));
 app.get('/*', function(req, res) {
   res.sendFile(path.resolve(__dirname,'tutorialteacher','dist','index.html'));
 });
+const header_middleware = headers.use((req, res, next) => {
+   
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept,Authorization"
+    );
+    res.setHeader(
+        "Access-Control-Allow-Methods",
+        "GET, POST, PATCH,PUT, DELETE, OPTIONS"
+    ); next();
+});
+app.use(express.json());
+app.use(header_middleware);
 /** Delete User */
 app.get('/edituser/:id', function (req, res) {
 	con.query("SELECT * FROM customers where id = '"+req.params.id+"'", function (err, result, fields) {
