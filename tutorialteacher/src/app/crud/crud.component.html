@@ -9,10 +9,10 @@
 			[(ngModel)]="name"
 			type="text"
 			class="form-control">
-			<!-- <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+			<div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
 				<div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
 				<div *ngIf="f['name'].errors && f['name'].errors['minlength']">Name should be 3 character.</div>
-			</div> -->
+			</div>
 		</div>
 		<div class="form-group">
 			<label for="exampleInputEmail1">Email address</label>
@@ -22,10 +22,10 @@
 			[(ngModel)]="email"
 			type="text"
 			class="form-control">
-			<!-- <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+			<div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
 				<div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
 				<div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email address.</div>
-			</div> -->
+			</div>
 		</div>
 		<div class="form-group">
 			<label for="exampleInputContact">Contact Number</label>
@@ -35,10 +35,10 @@
 			[(ngModel)]="contact"
 			type="text"
 			class="form-control">
-			<!-- <div *ngIf="f['contact'].touched && f['contact'].invalid" class="alert alert-danger">
+			<div *ngIf="f['contact'].touched && f['contact'].invalid" class="alert alert-danger">
 				<div *ngIf="f['contact'].errors && f['contact'].errors['required']">Email is required.</div>
 				<div *ngIf="f['contact'].errors && f['contact'].errors['contact']">Please, enter valid email address.</div>
-			</div> -->
+			</div>
 		</div>
 		<input type="file"  formControlName="profile_pic" required >
 		<input type = "hidden" formControlName="user_id" [(ngModel)]="user_id">
