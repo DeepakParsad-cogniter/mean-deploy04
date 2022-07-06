@@ -47,12 +47,15 @@ export class CrudComponent implements OnInit {
 		this.getUsers();
 	}
 	getUsers(){
-		this.service.pagination(this.p)
-		.subscribe(response => {
-			this.posts  = this.service.pagedData; /** This will get from post.service.ts pageData varibale  */
-			// this.total = this.service.pagedData.total;
-			this.userCount = Object.keys(this.posts).length;
-		});
+		// this.service.pagination(this.p)
+		// .subscribe(response => {
+		// 	this.posts  = this.service.pagedData; /** This will get from post.service.ts pageData varibale  */
+		// 	// this.total = this.service.pagedData.total;
+		// 	this.userCount = Object.keys(this.posts).length;
+		// });
+		this.service.getUserList().subscribe(result => {
+			console.log(result);
+		  })
 	}
 	edituser(editid:any):void{
 		this.btntext = "Update";

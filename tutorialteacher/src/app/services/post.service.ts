@@ -9,7 +9,7 @@ import { timeStamp } from 'console';
 export class PostService {
 	constructor(private http: HttpClient) {}
 	// apibaseurl = "https://localhost:8081/";
-	apibaseurl = "https://mean-deploy04.herokuapp.com/";
+	apibaseurl = "https://mean-deploy04.herokuapp.com";
 	// headers = new HttpClient().set('content-type', 'application/json').set('Access-Control-Allow-Origin', '*');	// const headers = new HttpClient
 	pagedData : any;
 	status : any;
@@ -18,7 +18,7 @@ export class PostService {
 		return this.http.get<any>(`${this.apibaseurl}edituser/${id}`);
 	}
 	getUserList(){
-		return this.http.get(this.apibaseurl)
+		return this.http.get<any>(`${this.apibaseurl}/pagination`)
 	}
 	addUser(user:any)
 	{
