@@ -54,7 +54,7 @@ const header_middleware = headers.use((req, res, next) => {
 });
 app.use(express.json());
 app.use(header_middleware);
-app.use("/api", postRouter)
+app.use("/api/posts", postRouter)
 /** Delete User */
 app.get('/edituser/:id', function (req, res) {
 	con.query("SELECT * FROM customers where id = '"+req.params.id+"'", function (err, result, fields) {
@@ -62,37 +62,37 @@ app.get('/edituser/:id', function (req, res) {
 		res.send(result);
 	});
 })
-app.get('/api/pagination', function (req, res) {
-	console.log("hi");
-	res.send({
-		message: "Profile fetched successfully!",
-		profile: "prof"
-	});
-	Profile.find().then(prof => {
-		if (prof) {
+// app.get('/api/pagination', function (req, res) {
+// 	console.log("hi");
+// 	res.send({
+// 		message: "Profile fetched successfully!",
+// 		profile: "prof"
+// 	});
+// 	Profile.find().then(prof => {
+// 		if (prof) {
 			
-			res.status(200).json({
-				message: "Profile fetched successfully!",
-				profile: prof
-			});
-		} else {
-			res.status(404).json({ message: "Profile not found!" });
-		}
-	})
-	.catch(e=>{
-		console.log(e)
-	});
-	console.log("hi");
-	var page = req.params.id;
-	var offset = (page * 2) - 2;
-	if(page == 1){
-		var offset = 0;
-	}
-	// con.query("SELECT * FROM customers order by id desc", function (err, result, fields) {
-	// 	if (err) throw err;
-	// 	res.send(result);
-	// });
-})
+// 			res.status(200).json({
+// 				message: "Profile fetched successfully!",
+// 				profile: prof
+// 			});
+// 		} else {
+// 			res.status(404).json({ message: "Profile not found!" });
+// 		}
+// 	})
+// 	.catch(e=>{
+// 		console.log(e)
+// 	});
+// 	console.log("hi");
+// 	var page = req.params.id;
+// 	var offset = (page * 2) - 2;
+// 	if(page == 1){
+// 		var offset = 0;
+// 	}
+// 	// con.query("SELECT * FROM customers order by id desc", function (err, result, fields) {
+// 	// 	if (err) throw err;
+// 	// 	res.send(result);
+// 	// });
+// })
 app.delete('/deleteuser/:id', function (req, res) {
 	con.query("Delete FROM customers where id = '"+req.params.id+"'", function (err, result, fields) {
 		if (err) throw err;

@@ -9,7 +9,7 @@ const MIME_TYPE_MAP = {
 };
 
 
-router.get('api/pagination', function (req, res) {
+router.get('/pagination', function (req, res) {
 	console.log("hi");
 	res.send({
 		message: "Profile fetched successfully!",

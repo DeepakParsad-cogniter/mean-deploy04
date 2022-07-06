@@ -10,9 +10,7 @@ import {environment} from '../../environments/environment'
 })
 export class PostService {
 	constructor(private http: HttpClient, private router: Router) {}
-	// const BACKEND_URL = environment.apiUrl
-	apibaseurl = (environment as any).apiUrl;
-	// apibaseurl = "https://mean-deploy04.herokuapp.com/api";
+	apibaseurl = "https://mean-deploy04.herokuapp.com/api";
 	// headers = new HttpClient().set('content-type', 'application/json').set('Access-Control-Allow-Origin', '*');	// const headers = new HttpClient
 	pagedData : any;
 	status : any;
