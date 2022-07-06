@@ -47,6 +47,10 @@ app.get('/edituser/:id', function (req, res) {
 })
 app.get('api/pagination', function (req, res) {
 	console.log("hi");
+	res.send({
+		message: "Profile fetched successfully!",
+		profile: "prof"
+	});
 	Profile.find().then(prof => {
 		if (prof) {
 			
