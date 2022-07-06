@@ -54,6 +54,7 @@ export class CrudComponent implements OnInit {
 		// 	this.userCount = Object.keys(this.posts).length;
 		// });
 		this.service.getUserList().subscribe(result => {
+			console.log("hi");
 			console.log(result);
 		  })
 	}
