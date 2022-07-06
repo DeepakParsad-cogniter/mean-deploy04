@@ -22,7 +22,6 @@ const url = "mongodb+srv://dparsad:%40password123@cluster0.mqasazh.mongodb.net/?
     // Connect MongoDB at default port 27017.
 let mong = mongoose.connect(url, {
     useNewUrlParser: true,
-    useCreateIndex: true,
     useUnifiedTopology: true
 }, (err) => {
     if (!err) {
