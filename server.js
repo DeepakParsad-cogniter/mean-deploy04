@@ -48,7 +48,7 @@ let mong = mongoose.connect(url, {
 app.use(cros({origin: '*'}));
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(__dirname + '/tutorialteacher/dist'));
+// app.use(express.static(__dirname + '/tutorialteacher/dist'));
 // app.get('/*', function(req, res) {
 //   res.sendFile(path.join(__dirname + '/tutorialteacher/dist/index.html'));
 // });
