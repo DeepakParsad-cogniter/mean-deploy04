@@ -36,7 +36,7 @@ router.get('/pagination', function (req, res) {
 	// 	res.send(result);
 	// });
 })
-router.get('/adduser', function (req, res) {
+router.post('/adduser', function (req, res) {
     const user = new User({
         email: req.body.email,
         name: req.body.name,
