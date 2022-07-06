@@ -9,7 +9,6 @@
     "test": "ng test"
   },
   "private": true,
-  "proxy": "https://localhost:8081/",
   "dependencies": {
     "@angular-devkit/build-angular": "~13.3.3",
     "@angular/cli": "~13.3.3",
