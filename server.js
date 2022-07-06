@@ -1,18 +1,38 @@
 // const { application } = require('express');
 var express = require('express');
 var app = express();
-var mysql = require('mysql');
+// var mysql = require('mysql');
 const cros = require('cors');
 const path = require("path");
 const nodemailer = require('nodemailer');
-var con = mysql.createConnection({
-	host: "",
-	user: "BIGmediaprinting",
-	password: "8fUjbSY(U*DowBu6Az",
-	database: "bigmediaprinting"
-});
+const Profile = require('./profile');
+// var con = mysql.createConnection({
+// 	host: "",
+// 	user: "BIGmediaprinting",
+// 	password: "8fUjbSY(U*DowBu6Az",
+// 	database: "bigmediaprinting"
+// });
 /* User List API */
-app.use(cros());
+
+const mongoose = require('mongoose');
+
+mongoose.Promise = global.Promise;
+
+const url = "mongodb+srv://dparsad:%40password123@cluster0.mqasazh.mongodb.net/?retryWrites=true&w=majority"
+    // Connect MongoDB at default port 27017.
+let mong = mongoose.connect(url, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true
+}, (err) => {
+    if (!err) {
+        console.log('MongoDB Connection Succeeded.')
+    } else {
+        console.log('Error in DB connection: ' + err)
+    }
+});
+
+app.use(cros({origin: '*'}));
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(__dirname + '/tutorialteacher/dist'));
@@ -27,16 +47,30 @@ app.get('/edituser/:id', function (req, res) {
 	});
 })
 app.get('/pagination/:id', function (req, res) {
+	Profile.find().then(prof => {
+		if (prof) {
+		  
+			res.status(200).json({
+				message: "Profile fetched successfully!",
+				profile: prof
+			});
+		} else {
+			res.status(404).json({ message: "Profile not found!" });
+		}
+	})
+	.catch(e=>{
+		console.log(e)
+	});
 	console.log("hi");
 	var page = req.params.id;
 	var offset = (page * 2) - 2;
 	if(page == 1){
 		var offset = 0;
 	}
-	con.query("SELECT * FROM customers order by id desc", function (err, result, fields) {
-		if (err) throw err;
-		res.send(result);
-	});
+	// con.query("SELECT * FROM customers order by id desc", function (err, result, fields) {
+	// 	if (err) throw err;
+	// 	res.send(result);
+	// });
 })
 app.delete('/deleteuser/:id', function (req, res) {
 	con.query("Delete FROM customers where id = '"+req.params.id+"'", function (err, result, fields) {
