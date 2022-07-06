@@ -25,7 +25,7 @@ export class PostService {
 	{
 		let queryParams = new HttpParams();
 		queryParams = queryParams.append("name",user.name).append("email",user.email).append("contact",user.contact).append('id',user.user_id);
-		this.http.post<any>(this.apibaseurl + `posts/adduser`,queryParams).subscribe(data => {
+		this.http.post<any>(this.apibaseurl + `/posts/adduser`,queryParams).subscribe(data => {
 			this.pagedData = data.id;
 		})
 	}
