@@ -62,7 +62,7 @@ app.get('/edituser/:id', function (req, res) {
 		res.send(result);
 	});
 })
-app.get('api/pagination', function (req, res) {
+app.get('/api/pagination', function (req, res) {
 	console.log("hi");
 	res.send({
 		message: "Profile fetched successfully!",

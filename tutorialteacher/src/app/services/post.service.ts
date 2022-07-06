@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpParams} from '@angular/common/http';
+import { Router } from '@angular/router';
 import { Observable,map } from 'rxjs';
 import { query } from 'express';
 import { timeStamp } from 'console';
@@ -7,9 +8,9 @@ import { timeStamp } from 'console';
 	providedIn: 'root'
 })
 export class PostService {
-	constructor(private http: HttpClient) {}
+	constructor(private http: HttpClient, private router: Router) {}
 	// apibaseurl = "https://localhost:8081/";
-	apibaseurl = "https://mean-deploy04.herokuapp.com";
+	apibaseurl = "https://mean-deploy04.herokuapp.com/api";
 	// headers = new HttpClient().set('content-type', 'application/json').set('Access-Control-Allow-Origin', '*');	// const headers = new HttpClient
 	pagedData : any;
 	status : any;
@@ -18,7 +19,7 @@ export class PostService {
 		return this.http.get<any>(`${this.apibaseurl}edituser/${id}`);
 	}
 	getUserList(){
-		return this.http.get(`${this.apibaseurl}/api/pagination`,{responseType: 'text'})
+		return this.http.get<{ profile: any, message: string }>(`${this.apibaseurl}/pagination`)
 	}
 	addUser(user:any)
 	{
