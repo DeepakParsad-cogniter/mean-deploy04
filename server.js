@@ -6,7 +6,8 @@ const cros = require('cors');
 const path = require("path");
 const nodemailer = require('nodemailer');
 const Profile = require('./profile');
-const headers = new express.Router()
+const headers = new express.Router();
+const postRouter = require("./Routes/post");
 // var con = mysql.createConnection({
 // 	host: "",
 // 	user: "BIGmediaprinting",
@@ -53,6 +54,7 @@ const header_middleware = headers.use((req, res, next) => {
 });
 app.use(express.json());
 app.use(header_middleware);
+app.use("/api", postRouter)
 /** Delete User */
 app.get('/edituser/:id', function (req, res) {
 	con.query("SELECT * FROM customers where id = '"+req.params.id+"'", function (err, result, fields) {
