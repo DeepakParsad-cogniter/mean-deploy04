@@ -45,7 +45,7 @@ app.get('/edituser/:id', function (req, res) {
 		res.send(result);
 	});
 })
-app.get('/pagination', function (req, res) {
+app.get('api/pagination', function (req, res) {
 	Profile.find().then(prof => {
 		if (prof) {
 		  
