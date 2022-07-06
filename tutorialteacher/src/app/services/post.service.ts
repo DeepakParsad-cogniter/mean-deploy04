@@ -4,12 +4,14 @@ import { Router } from '@angular/router';
 import { Observable,map } from 'rxjs';
 import { query } from 'express';
 import { timeStamp } from 'console';
+import {environment} from '../../environments/environment'
 @Injectable({
 	providedIn: 'root'
 })
 export class PostService {
 	constructor(private http: HttpClient, private router: Router) {}
-	apibaseurl = "https://localhost:8081/api";
+	// const BACKEND_URL = environment.apiUrl
+	apibaseurl = environment.apiUrl;
 	// apibaseurl = "https://mean-deploy04.herokuapp.com/api";
 	// headers = new HttpClient().set('content-type', 'application/json').set('Access-Control-Allow-Origin', '*');	// const headers = new HttpClient
 	pagedData : any;
