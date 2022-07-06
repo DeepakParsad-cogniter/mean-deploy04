@@ -49,9 +49,9 @@ app.use(cros({origin: '*'}));
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(__dirname + '/tutorialteacher/dist'));
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/tutorialteacher/dist/index.html'));
-});
+// app.get('/*', function(req, res) {
+//   res.sendFile(path.join(__dirname + '/tutorialteacher/dist/index.html'));
+// });
 /** Delete User */
 app.get('/edituser/:id', function (req, res) {
 	con.query("SELECT * FROM customers where id = '"+req.params.id+"'", function (err, result, fields) {
