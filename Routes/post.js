@@ -36,6 +36,24 @@ router.get('/pagination', function (req, res) {
 	// 	res.send(result);
 	// });
 })
+router.get('/adduser', function (req, res) {
+    const user = new User({
+        email: req.body.email,
+        name: req.body.name,
+        contact: req.body.contact
+      });
+    user.save().then(result => {
+        if(!result){
+          return res.status(500).json({
+            message: "Error Creating USer"
+          })
+        }
+        res.status(201).json({
+          message: "User created!",
+          result: result
+        });
+    })
+})
 
 
 

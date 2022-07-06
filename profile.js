@@ -1,17 +1,17 @@
 const mongoose = require('mongoose');
 
 const Profile = mongoose.model('User', {
-    username: {
+    email: {
         type: String,
         required: true,
         unique: true
     },
 
-    bio: {
+    name: {
         type: String,
         required: true
     },
-    imagePath: { 
+    contact: { 
         type: String,
          required: true 
         },
