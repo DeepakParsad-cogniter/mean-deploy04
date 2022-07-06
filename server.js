@@ -5,7 +5,6 @@ var app = express();
 const cros = require('cors');
 const path = require("path");
 const nodemailer = require('nodemailer');
-const Profile = require('./profile');
 const headers = new express.Router();
 const postRouter = require("./Routes/post");
 // var con = mysql.createConnection({

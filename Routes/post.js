@@ -1,5 +1,6 @@
 const express = require('express')
 const router = new express.Router()
+const Profile = require('../profile');
 
 const MIME_TYPE_MAP = {
     "image/png": "png",
