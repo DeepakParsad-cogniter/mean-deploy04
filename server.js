@@ -36,10 +36,7 @@ let mong = mongoose.connect(url, {
 app.use(cros({origin: '*'}));
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(__dirname + '/tutorialteacher/dist'));
-app.get('/*', function(req, res) {
-  res.sendFile(path.resolve(__dirname,'tutorialteacher','dist','index.html'));
-});
+
 const header_middleware = headers.use((req, res, next) => {
    
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -146,6 +143,10 @@ app.post('/adduser',function(req,res){
 // 	console.log("Example app listening at http://%s:%s", host, port)
 // })
 
+app.use(express.static(__dirname + '/tutorialteacher/dist'));
+app.get('/*', function(req, res) {
+  res.sendFile(path.resolve(__dirname,'tutorialteacher','dist','index.html'));
+});
 const port = process.env.PORT || 8081;
 app.listen(port, () => {
     console.log("Listening on " + port);
