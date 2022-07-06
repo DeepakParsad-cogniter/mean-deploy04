@@ -25,9 +25,21 @@ export class PostService {
 	{
 		let queryParams = new HttpParams();
 		queryParams = queryParams.append("name",user.name).append("email",user.email).append("contact",user.contact).append('id',user.user_id);
-		this.http.post<any>(this.apibaseurl + `/posts/adduser`,queryParams).subscribe(data => {
+		console.log(queryParams);
+		this.http.post(this.apibaseurl + `/posts/adduser`,queryParams).subscribe(data => {
 			this.pagedData = data.id;
 		})
+
+		// this.http.post<{ message: string; post: Profile }>(BACKEND_URL +"/create",postData)
+		// .subscribe(responseData => {
+		//   this.router.navigate(['/'])
+		//   this.err.next(null)
+  
+		// },
+		//   err => {
+		// 	this.err.next(err)
+  
+		//   })
 	}
 	deleteuser(id:any){
 		console.log(id)
