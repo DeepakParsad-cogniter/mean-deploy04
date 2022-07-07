@@ -28,7 +28,7 @@ export class PostService {
 		let queryParams = new HttpParams();
 		queryParams = queryParams.append("name",user.name).append("email",user.email).append("contact",user.contact).append('id',user.user_id);
 		console.log("hi");
-		return this.http.get(`${this.apibaseurl}/posts/adduser`,queryParams);
+		return this.http.get(`${this.apibaseurl}/posts/adduser`);
 		// this.http.post(this.apibaseurl + `/posts/adduser`,queryParams);
 
 		// this.http.post<{ message: string; post: Profile }>(this.apibaseurl + `/posts/adduser`,queryParams);
