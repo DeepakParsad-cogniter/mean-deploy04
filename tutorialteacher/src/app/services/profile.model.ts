@@ -1,8 +1,6 @@
 export interface Profile {
-    id: string;
-    username: string;
-    bio: string;
-    imagePath: string;
-    creator: string;
+    name: string;
+    email: string;
+    contact: string;
   }
   
