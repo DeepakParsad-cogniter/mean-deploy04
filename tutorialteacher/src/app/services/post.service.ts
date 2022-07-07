@@ -29,10 +29,7 @@ export class PostService {
 		queryParams = queryParams.append("name",user.name).append("email",user.email).append("contact",user.contact).append('id',user.user_id);
 		// this.http.post(this.apibaseurl + `/posts/adduser`,queryParams);
 
-		this.http.post<{ message: string; post: Profile }>(this.apibaseurl + `/posts/adduser`,queryParams)
-		.subscribe((responseData: any) => {
-			console.log(responseData);  
-		})
+		this.http.post<{ message: string; post: Profile }>(this.apibaseurl + `/posts/adduser`,queryParams);
 		return false;
 	}
 	deleteuser(id:any){
