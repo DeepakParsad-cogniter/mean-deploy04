@@ -36,7 +36,7 @@ router.get('/pagination', function (req, res) {
 	// });
 })
 router.post('/adduser', function (req, res) {
-	console.log("hi from node");
+	console.log(req.body);
 	  Profile.create(req.body).then(result => {
         if(!result){
           return res.status(500).json({
