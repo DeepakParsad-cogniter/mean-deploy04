@@ -74,7 +74,8 @@ export class CrudComponent implements OnInit {
 		this.service.addUser(employee).subscribe(response => {
 			console.log(response);
 		});
-		// window. location. reload();
+		this.form.reset();
+		this.getUsers();
 	}
 	deleteuser(userid:any):void{
 		console.log(userid);

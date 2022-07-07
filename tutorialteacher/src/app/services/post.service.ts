@@ -23,6 +23,7 @@ export class PostService {
 		return this.http.get(`${this.apibaseurl}/posts/pagination`).pipe(
 			map((response: any) => {
 				this.pagedData = response;
+				
 			})
 		);
 	}
@@ -31,7 +32,6 @@ export class PostService {
 		// let queryParams = new HttpParams();
 		let queryParams = new HttpParams();
 		queryParams = queryParams.append("name",user.name).append("email",user.email).append("contact",user.contact).append('id',user.user_id);
-		console.log("hi from angular");
 		// return this.http.get(`${this.apibaseurl}/posts/adduser`);
 		return this.http.post(this.apibaseurl + `/posts/adduser`,queryParams);
 
