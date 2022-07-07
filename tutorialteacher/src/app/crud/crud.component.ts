@@ -71,7 +71,7 @@ export class CrudComponent implements OnInit {
 		var employee : any = this.form.value;
 		console.log(employee.profile_pic);
 		this.service.addUser(employee);
-		window. location. reload();
+		// window. location. reload();
 	}
 	deleteuser(userid:any):void{
 		console.log(userid);
