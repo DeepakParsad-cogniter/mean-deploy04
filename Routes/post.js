@@ -25,7 +25,6 @@ router.get('/pagination', function (req, res) {
 	.catch(e=>{
 		console.log(e)
 	});
-	console.log("hi");
 	var page = req.params.id;
 	var offset = (page * 2) - 2;
 	if(page == 1){
