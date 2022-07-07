@@ -20,7 +20,7 @@ export class PostService {
 		return this.http.get<any>(`${this.apibaseurl}edituser/${id}`);
 	}
 	getUserList(){
-		return this.http.get(`${this.apibaseurl}/posts/pagination`)
+		// return this.http.get(`${this.apibaseurl}/posts/pagination`)
 	}
 	addUser(user:any)
 	{
@@ -34,6 +34,7 @@ export class PostService {
 			console.log(responseData);
   
 		})
+		return false;
 	}
 	deleteuser(id:any){
 		console.log(id)
