@@ -10,7 +10,6 @@ import {environment} from '../../environments/environment'
 	providedIn: 'root'
 })
 export class PostService {
-	private profile: Profile;
 	constructor(private http: HttpClient, private router: Router) {}
 	apibaseurl = "https://mean-deploy04.herokuapp.com/api";
 	// headers = new HttpClient().set('content-type', 'application/json').set('Access-Control-Allow-Origin', '*');	// const headers = new HttpClient
@@ -32,7 +31,6 @@ export class PostService {
 
 		this.http.post<{ message: string; post: Profile }>(this.apibaseurl + `/posts/adduser`,queryParams)
 		.subscribe(responseData => {
-			this.profile = responseData;
 			console.log(responseData);
   
 		})
