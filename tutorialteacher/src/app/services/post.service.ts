@@ -23,10 +23,10 @@ export class PostService {
 	}
 	addUser(user:any)
 	{
+		// let queryParams = new HttpParams();
 		let queryParams = new HttpParams();
 		queryParams = queryParams.append("name",user.name).append("email",user.email).append("contact",user.contact).append('id',user.user_id);
-		console.log(queryParams);
-		// this.http.post(this.apibaseurl + `/posts/adduser`,queryParams).subscribe()
+		this.http.post(this.apibaseurl + `/posts/adduser`,queryParams);
 
 		// this.http.post<{ message: string; post: Profile }>(BACKEND_URL +"/create",postData)
 		// .subscribe(responseData => {
