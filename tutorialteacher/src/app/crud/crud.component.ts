@@ -50,7 +50,7 @@ export class CrudComponent implements OnInit {
 		this.service.getUserList()
 		.subscribe(response => {
 			console.log(this.service.pagedData);
-			this.posts  = this.service.pagedData; /** This will get from post.service.ts pageData varibale  */
+			this.posts  = this.service.pagedData.profile; /** This will get from post.service.ts pageData varibale  */
 			this.total = this.service.pagedData.total;
 			this.userCount = Object.keys(this.posts).length;
 		});
