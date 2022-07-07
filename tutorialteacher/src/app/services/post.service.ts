@@ -30,9 +30,8 @@ export class PostService {
 		// this.http.post(this.apibaseurl + `/posts/adduser`,queryParams);
 
 		this.http.post<{ message: string; post: Profile }>(this.apibaseurl + `/posts/adduser`,queryParams)
-		.subscribe(responseData => {
-			console.log(responseData);
-  
+		.subscribe((responseData: any) => {
+			console.log(responseData);  
 		})
 		return false;
 	}
