@@ -37,12 +37,7 @@ router.get('/pagination', function (req, res) {
 })
 router.post('/adduser', function (req, res) {
 	console.log("hi from node");
-    const user = new Profile({
-        email: "req.body.email",
-        name: "req.body.name",
-        contact: "req.body.contact"
-      });
-	  Profile.save().then(result => {
+	  Profile.create(req.body).then(result => {
         if(!result){
           return res.status(500).json({
             message: "Error Creating USer"
