@@ -51,7 +51,7 @@ router.post('/adduser', function (req, res) {
 })
 
 router.get('/edituser', function(req, res) {
-	console.log("arraived");
+	console.log(req.body);
     Profile.findOne({_id:req.body.id}, 
     function(err, data) {
         if(err){
