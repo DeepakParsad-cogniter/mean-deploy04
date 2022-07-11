@@ -50,7 +50,7 @@ router.post('/adduser', function (req, res) {
     })
 })
 
-router.get('/edituser', function(req, res) {
+router.post('/edituser', function(req, res) {
 	console.log(req.body);
     Profile.findOne({_id:req.body.id}, 
     function(err, data) {
