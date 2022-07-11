@@ -19,7 +19,7 @@ export class PostService {
 	{
 		let queryParams = new HttpParams();
 		queryParams = queryParams.append("id",id);
-		return this.http.get(this.apibaseurl + `/posts/edituser`,queryParams);
+		return this.http.post(this.apibaseurl + `/posts/edituser`,queryParams);
 	}
 	getUserList(){
 		return this.http.get(`${this.apibaseurl}/posts/pagination`).pipe(
