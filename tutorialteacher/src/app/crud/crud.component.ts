@@ -62,10 +62,10 @@ export class CrudComponent implements OnInit {
 	edituser(editid){
 		this.btntext = "Update";
 		return this.service.edituser(editid).subscribe(response=>{
-			this.name = response[0].name;
-			this.email = response[0].email;
-			this.contact = response[0].contact;
-			this.user_id = response[0].id;
+			this.name = response.name;
+			this.email = response.email;
+			this.contact = response.contact;
+			this.user_id = response._id;
 		});
 	}
 	onSubmit():void{
