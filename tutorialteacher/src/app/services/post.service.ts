@@ -17,7 +17,7 @@ export class PostService {
 	status : any;
 	edituser(id:any)
 	{
-		return this.http.get<any>(`${this.apibaseurl}/posts/edituser/`,id);
+		return this.http.get(`${this.apibaseurl}/posts/edituser/`,id);
 	}
 	getUserList(){
 		return this.http.get(`${this.apibaseurl}/posts/pagination`).pipe(
