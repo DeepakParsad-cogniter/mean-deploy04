@@ -36,18 +36,30 @@ router.get('/pagination', function (req, res) {
 	// });
 })
 router.post('/adduser', function (req, res) {
-	console.log(req.body);
-	  Profile.create(req.body).then(result => {
-        if(!result){
-          return res.status(500).json({
-            message: "Error Creating USer"
-          })
-        }
-        res.status(201).json({
-          message: "User created!",
-          result: result
-        });
-    })
+	if(req.body.id){
+		Profile.findByIdAndUpdate(req.body.id, 
+			{name:req.body.name,email:req.body.email,contact:req.body.contact}, function(err, data) {
+				if(err){
+					console.log(err);
+				}
+				else{
+					res.send(data);
+					console.log("Data updated!");
+				}
+		});
+	}else{
+		Profile.create(req.body).then(result => {
+		  if(!result){
+			return res.status(500).json({
+			  message: "Error Creating USer"
+			})
+		  }
+		  res.status(201).json({
+			message: "User created!",
+			result: result
+		  });
+	  });
+	}	
 })
 
 router.post('/edituser', function(req, res) {
