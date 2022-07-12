@@ -44,7 +44,7 @@ export class PostService {
 		console.log(id);
 		let queryParams = new HttpParams();
 		queryParams = queryParams.append("id",id);
-		return this.http.delete(this.apibaseurl + `deleteuser/`,queryParams)
+		return this.http.delete(this.apibaseurl + `/posts/deleteuser/`,queryParams)
 		.subscribe({
 			next: data => {
 				this.status = 'Delete successful';
