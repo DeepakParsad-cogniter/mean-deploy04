@@ -81,7 +81,7 @@ export class CrudComponent implements OnInit {
 	deleteuser(userid:any):void{
 		console.log(userid);
 		this.service.deleteuser(userid);
-		window. location. reload();
+		// window. location. reload();
 	}
 	ngOnDestroy() {}
 }
