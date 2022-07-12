@@ -40,7 +40,7 @@ export class PostService {
 		// this.http.post<{ message: string; post: Profile }>(this.apibaseurl + `/posts/adduser`,queryParams);
 		// return false;
 	}
-	deleteuser(id:any){
+	deleteuser(id){
 		console.log(id);
 		let queryParams = new HttpParams();
 		queryParams = queryParams.append("id",id);
