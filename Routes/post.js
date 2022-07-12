@@ -64,7 +64,20 @@ router.post('/adduser', function (req, res) {
 
 router.post('/edituser', function(req, res) {
 	console.log(req.body);
-    Profile.findOne({_id:req.body.id}, 
+	Profile.findOne({_id:req.body.id}, 
+    function(err, data) {
+        if(err){
+            console.log(err);
+        }
+        else{
+			console.log(data);
+            res.send(data);
+        }
+    });  
+});
+router.delete('/deleteuser', function(req, res) {
+	console.log(req.body);
+	Profile.findOne({_id:req.body.id}, 
     function(err, data) {
         if(err){
             console.log(err);
