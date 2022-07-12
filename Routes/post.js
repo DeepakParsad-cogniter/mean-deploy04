@@ -77,7 +77,7 @@ router.post('/edituser', function(req, res) {
 });
 router.delete('/deleteuser', function(req, res) {
 	console.log(req.body);
-	Profile.findOne({_id:req.body.id}, 
+	Profile.remove({_id:req.body.id},
     function(err, data) {
         if(err){
             console.log(err);
