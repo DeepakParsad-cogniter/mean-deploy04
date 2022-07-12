@@ -79,7 +79,6 @@ export class CrudComponent implements OnInit {
 		
 	}
 	deleteuser(userid){
-		console.log(userid);
 		this.service.deleteuser(userid);
 		this.getUsers();
 		// window. location. reload();

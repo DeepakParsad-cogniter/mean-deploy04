@@ -41,7 +41,6 @@ export class PostService {
 		// return false;
 	}
 	deleteuser(id){
-		console.log(id);
 		let queryParams = new HttpParams();
 		queryParams = queryParams.append("id",id);
 		return this.http.post(this.apibaseurl + `/posts/deleteuser/`,queryParams)
